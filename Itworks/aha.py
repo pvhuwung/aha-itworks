@@ -6,6 +6,25 @@ import streamlit as st
 import matplotlib.pyplot as plt
 import streamlit as st
 
+
+# Add a title to the sidebar
+st.sidebar.image("group_logo.png", width=200)
+st.sidebar.title("It Works")
+
+# Add a slider to the sidebar
+st.sidebar.slider('Select a range of values', 0, 100, (25, 75), 1)
+
+# Add other sidebar elements
+sidebar_option = st.sidebar.selectbox("Select an option", ["Option 1", "Option 2", "Option 3"])
+
+# Add main content
+if sidebar_option == "Option 1":
+    st.write("You selected Option 1.")
+elif sidebar_option == "Option 2":
+    st.write("You selected Option 2.")
+elif sidebar_option == "Option 3":
+    st.write("You selected Option 3.")
+
 # # Custom CSS styles for the menu/taskbar
 # st.markdown(
 #     """
@@ -50,7 +69,7 @@ histo_tab, bubble_tab, chatbot_tab, histo_tab_2 = st.tabs(["Histogram", "Bubble"
 with histo_tab:
     selected_attribute = st.radio(label="Select Attribute", options=numerical_cols, horizontal=True)
 
-    fig, ax = plt.subplots(figsize=(10, 4.5))
+    fig, ax = plt.subplots(figsize=(10, 3))
 
     # for column in numerical_cols[0:1]:
     column = selected_attribute
